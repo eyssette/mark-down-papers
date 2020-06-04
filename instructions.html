@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Mode d'emploi</title>
+  <link rel="stylesheet" href="annotation.css">
+</head>
+<body style="max-width:1200px; margin:auto;">
+  
+<div class="editor-preview-side editor-preview-active-side"><h1>Annotation en ligne d'une copie</h1>
+<p>Si vous repérez un bug, ou si vous avez une suggestion d'amélioration, merci de m'écrire : <a href="mailto:cedric.eyssette@ac-lyon.fr">cedric.eyssette@ac-lyon.fr</a>.</p>
+<p>Vous pouvez afficher ce mode d'emploi en cliquant sur le point d'interrogation dans la barre d'icônes (tout à droite).</p>
+<p>L'outil est disponible à cette adresse : <a href="http://eyssette.net/annoter/">http://eyssette.net/annoter/</a></p>
+<h2>Fonctionnement</h2>
+<ol>
+<li>Copier-coller le texte de la copie dans la fenêtre de gauche.</li>
+<li>Cliquer sur l'étoile dans la barre d'icônes (tout à droite) pour mettre en forme automatiquement le texte.</li>
+<li>Annoter la copie (cf. ci-dessous). Les raccourcis ordinaires pour annuler (Cmd + Z) ou rétablir (Cmd + Shift + Z) la dernière action fonctionnent.</li>
+<li>Transmettre la correction, soit par copier-coller de la fenêtre de droite, soit par impression dans un fichier PDF (Cmd-P ou Ctrl-Cmd-P). Attention : si vous souhaitez pouvoir reprendre votre correction pour la modifier, il faut conserver la fenêtre de gauche (p.ex. par copier-coller dans un <a href="https://pastebin.zici.fr/">pastebin</a>)</li>
+</ol>
+<p>Le document est automatiquement sauvegardé (à chaque seconde).</p>
+<h2>Les possibilités d'édition du texte</h2>
+<h3>Souligner, barrer, italiques, gras, puces</h3>
+<ul>
+<li>Souligner : Cmd + U</li>
+<li>Barrer : Cmd + Shift + X</li>
+<li>Italiques : Cmd + Shift + I (ou bouton : “I”)</li>
+<li>Gras : Cmd + Shift + B (ou bouton : “B”)</li>
+<li>Puces : commencer par “1.” pour une liste numérotée, par “*” pour une liste non numérotée (ou utiliser les icônes correspondantes)</li>
+</ul>
+<p><i>Exemple</i> : Lorem <code>ipsum dolor</code> <del>sit amet</del>,  <i>consectetur</i> <b>adipiscing</b> elit.</p>
+<h3>Commenter un passage</h3>
+<ul>
+<li>En bleu : Cmd + I</li>
+<li>En rouge : Cmd + B</li>
+<li>Souligner puis commenter en bleu :  Ctrl + Cmd + U</li>
+</ul>
+<p><i>Exemple</i> : Lorem ipsum dolor <em>Commentaire en bleu</em> sit amet, consectetur adipiscing elit.<strong>Commentaire en rouge</strong> Maecenas ut egestas orci, <code>accumsan pharetra</code><em>Passage souligné puis commentaire en bleu</em> felis.</p>
+<h3>Rédiger une appréciation générale</h3>
+<p>Il suffit de commencer chaque ligne avec le caractère “&gt;”. On peut, à l'intérieur d'une appréciation utiliser les raccourcis ci-dessus.</p>
+<blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur <i>adipiscing elit</i>.</p>
+<p>Maecenas ut <b>egestas orci</b>, accumsan pharetra felis.</p>
+<ol>
+<li>Nullam venenatis imperdiet sapien, eget fringilla lorem venenatis non.</li>
+<li>Donec vitae est varius, maximus erat non, porttitor ante.</li>
+</ol>
+</blockquote>
+<h3>Notes de bas de page</h3>
+<p><i>Exemple</i> : Lorem ipsum<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> dolor sit amet<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>, consectetur adipiscing elit.</p>
+<p><br></p>
+<p><i>Code</i> : Lorem ipsum<code>^[Note]</code> dolor sit amet<code>[^mot-clé]</code>, consectetur adipiscing elit.</p>
+<p><code>[^mot-clé]:</code> Note</p>
+<h2>Autres fonctions</h2>
+<h3>Compteur de mots</h3>
+<p>Le compteur de mot dans la barre d'icônes est automatiquement réinitialisé lorsqu'on formate le texte avec l'icône “étoile”. Sinon, il suffit de cliquer sur l'icône “calculatrice” pour recalculer le nombre de mots.</p>
+<h3>Chronomètre</h3>
+<ul>
+<li>Lancer ou arrêter le chronomètre : Ctrl + S (ou : cliquer sur l'icône “sablier”)</li>
+<li>Réinitialiser le chronomètre : Ctrl + R (ou : cliquer sur l'icône “retour en arrière”)</li>
+</ul>
+<h2>Modules expérimentaux</h2>
+<h3>Aide à l'évaluation</h3>
+<p>Pour chaque paragraphe, vous pouvez mettre une évaluation de cette manière : <code>&lt;n&gt;+&lt;/n&gt;</code></p>
+<p>La balise <n>+</n> ne se voit pas dans la fenêtre de droite (et donc n'apparaîtra pas dans le fichier destiné à l'élève). Pour l'évaluation, on a le choix entre 7 options :</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Code</th><th style="text-align:center">Note / 20</th><th style="text-align:center">Classement</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">+++</td><td style="text-align:center">20</td><td style="text-align:center">A+</td></tr>
+<tr><td style="text-align:center">++</td><td style="text-align:center">17.5</td><td style="text-align:center">A</td></tr>
+<tr><td style="text-align:center">+</td><td style="text-align:center">15</td><td style="text-align:center">B</td></tr>
+<tr><td style="text-align:center">+-</td><td style="text-align:center">12.5</td><td style="text-align:center">C+</td></tr>
+<tr><td style="text-align:center">-+</td><td style="text-align:center">10</td><td style="text-align:center">C</td></tr>
+<tr><td style="text-align:center">-</td><td style="text-align:center">7.5</td><td style="text-align:center">D</td></tr>
+<tr><td style="text-align:center">--</td><td style="text-align:center">5</td><td style="text-align:center">E</td></tr>
+</tbody>
+</table>
+<ul>
+<li>Insérer la balise : Ctrl-n</li>
+<li>Calculer la note : Shift-Ctrl-n (le module fait simplement la moyenne des évaluations).</li>
+</ul>
+<h3>Insertion automatique d'une annotation type</h3>
+<p>Pour définir des annotations automatiques, il faut cliquer sur le “code barre” dans la barre d'icônes, et insérer ses codes, en respectant la syntaxe indiquée. Il suffira ensuite d'insérer le code de cette manière : <code>&lt;a class="code"&gt;&lt;/a&gt;</code></p>
+<ul>
+<li>Insérer une annotation type : Cmd-Ctrl-A</li>
+</ul>
+<h3>Annotations dans la marge</h3>
+<p>Il est possible d'insérer des remarques très courtes dans la marge, à gauche ou à droite. Cela peut fonctionner si on a un système de codage de ses annotations : par exemple E<sup>+</sup> <span class="margeL">E<sup>+</sup></span> (pour un bon exemple) ou OL<sup>-</sup> <span class="margeR">OL<sup>-</sup></span> (pour une organisation logique défaillante).</p>
+<p>Si on veut utiliser des remarques plus longues, il faut encadrer la copie de l'élève avec les balises suivantes : <code>&lt;div class="grandesmarges"&gt;&lt;/div&gt;</code></p>
+<ul>
+<li>Mettre un commentaire dans la marge à gauche : Ctrl-M</li>
+<li>Mettre un commentaire dans la marge à droite : Shift-Ctrl-M</li>
+<li>Insérer un caractère ou un mot en <sup>exposant</sup> : <code>^mot^</code>
+<ul>
+<li>Raccourci pour le signe ⁺ : Ctrl-P</li>
+<li>Raccourci pour le signe ⁻ ; Shift-Ctrl-P</li>
+</ul></li>
+</ul>
+<h2>Crédits</h2>
+<p>Cet outil vous est proposé, sans garantie de fonctionnement. Il a été construit à partir de :</p>
+<ul>
+<li><a href="https://github.com/sparksuite/simplemde-markdown-editor/">SimpleMDE</a></li>
+<li><a href="https://github.com/domchristie/turndown">Turndown</a></li>
+<li><a href="https://github.com/kaleidawave/online-stopwatch">Online Stopwatch</a></li>
+<li><a href="https://github.com/jonschlinkert/remarkable">Remarkable</a></li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Note dans le texte lui-même <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Note définie par un mot clé <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</div>
+
+
+</body>
+</html>

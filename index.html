@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+  	<title>Annotation en ligne d'une copie</title>
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+  	<link rel="stylesheet" href="annotation.css">
+	<link rel="stylesheet" href="codage-annotations.css">
+  	<link rel="icon" href="favicon-paper.ico" />
+	<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+	<script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+	<script src="https://jonschlinkert.github.io/remarkable/dist/remarkable.js"></script>
+</head>
+<body>
+<textarea># Annotation en ligne d'une copie
+Si vous repérez un bug, ou si vous avez une suggestion d'amélioration, merci de m'écrire : cedric.eyssette@ac-lyon.fr.
+
+Vous pouvez afficher ce mode d'emploi en cliquant sur le point d'interrogation dans la barre d'icônes (tout à droite).
+
+## Fonctionnement
+1. Copier-coller le texte de la copie dans la fenêtre de gauche.
+2. Cliquer sur l'étoile dans la barre d'icônes (tout à droite) pour mettre en forme automatiquement le texte.
+3. Annoter la copie (cf. ci-dessous). Les raccourcis ordinaires pour annuler (Cmd + Z) ou rétablir (Cmd + Shift + Z) la dernière action fonctionnent.
+4. Transmettre la correction, soit par copier-coller de la fenêtre de droite, soit par impression dans un fichier PDF (Cmd-P ou Ctrl-Cmd-P). Attention : si vous souhaitez pouvoir reprendre votre correction pour la modifier, il faut conserver la fenêtre de gauche (p.ex. par copier-coller dans un [pastebin](https://pastebin.zici.fr/))
+
+Le document est automatiquement sauvegardé (à chaque seconde).
+
+## Les possibilités d'édition du texte
+
+### Souligner, barrer, italiques, gras, puces
+
+* Souligner : Cmd + U
+* Barrer : Cmd + Shift + X
+* Italiques : Cmd + Shift + I (ou bouton : “I”)
+* Gras : Cmd + Shift + B (ou bouton : “B”)
+* Puces : commencer par “1.” pour une liste numérotée, par “*” pour une liste non numérotée (ou utiliser les icônes correspondantes)
+
+<i>Exemple</i> : Lorem `ipsum dolor` ~~sit amet~~,  <i>consectetur</i> <b>adipiscing</b> elit.
+
+### Commenter un passage
+
+* En bleu : Cmd + I
+* En rouge : Cmd + B
+* Souligner puis commenter en bleu :  Ctrl + Cmd + U
+
+<i>Exemple</i> : Lorem ipsum dolor *Commentaire en bleu* sit amet, consectetur adipiscing elit.**Commentaire en rouge** Maecenas ut egestas orci, `accumsan pharetra`*Passage souligné puis commentaire en bleu* felis.
+
+### Rédiger une appréciation générale
+
+Il suffit de commencer chaque ligne avec le caractère “>”. On peut, à l'intérieur d'une appréciation utiliser les raccourcis ci-dessus.
+ 
+>Lorem ipsum dolor sit amet, consectetur <i>adipiscing elit</i>.
+>
+> Maecenas ut <b>egestas orci</b>, accumsan pharetra felis.
+> 
+> 1. Nullam venenatis imperdiet sapien, eget fringilla lorem venenatis non.
+> 2. Donec vitae est varius, maximus erat non, porttitor ante.
+
+### Notes de bas de page
+
+<i>Exemple</i> : Lorem ipsum^[Note dans le texte lui-même] dolor sit amet[^mot-clé-pour-cette-note], consectetur adipiscing elit.
+
+[^mot-clé-pour-cette-note]: Note définie par un mot clé
+
+<br/>
+
+<i>Code</i> : Lorem ipsum`^[Note]` dolor sit amet`[^mot-clé]`, consectetur adipiscing elit.
+
+`[^mot-clé]:` Note
+
+## Autres fonctions
+### Compteur de mots
+Le compteur de mot dans la barre d'icônes est automatiquement réinitialisé lorsqu'on formate le texte avec l'icône “étoile”. Sinon, il suffit de cliquer sur l'icône “calculatrice” pour recalculer le nombre de mots.
+### Chronomètre
+* Lancer ou arrêter le chronomètre : Ctrl + S (ou : cliquer sur l'icône “sablier”)
+* Réinitialiser le chronomètre : Ctrl + R (ou : cliquer sur l'icône “retour en arrière”)
+
+## Modules expérimentaux
+### Aide à l'évaluation
+Pour chaque paragraphe, vous pouvez mettre une évaluation de cette manière : `<n>+</n>`
+
+La balise <n>+</n> ne se voit pas dans la fenêtre de droite (et donc n'apparaîtra pas dans le fichier destiné à l'élève). Pour l'évaluation, on a le choix entre 7 options :
+
+
+| Code | Note / 20 | Classement |
+|:--------:|:--------:|:--------:|
+| +++     | 20     | A+     |
+| ++     | 17.5     | A     |
+| +     | 15     | B     |
+| +-     | 12.5     | C+     |
+| -+     | 10     | C     |
+| -     | 7.5     | D     |
+| --     | 5     | E     |
+
+
+* Insérer la balise : Ctrl-n
+* Calculer la note : Shift-Ctrl-n (le module fait simplement la moyenne des évaluations).
+
+### Insertion automatique d'une annotation type
+Pour définir des annotations automatiques, il faut cliquer sur le “code barre” dans la barre d'icônes, et insérer ses codes, en respectant la syntaxe indiquée. Il suffira ensuite d'insérer le code de cette manière : `<a class="code"></a>`
+
+* Insérer une annotation type : Cmd-Ctrl-A
+
+### Annotations dans la marge
+Il est possible d'insérer des remarques très courtes dans la marge, à gauche ou à droite. Cela peut fonctionner si on a un système de codage de ses annotations : par exemple E^+^ <span class="margeL">E^+^</span> (pour un bon exemple) ou OL^-^ <span class="margeR">OL^-^</span> (pour une organisation logique défaillante).
+
+Si on veut utiliser des remarques plus longues, il faut encadrer la copie de l'élève avec les balises suivantes : `<div class="grandesmarges"></div>`
+
+* Mettre un commentaire dans la marge à gauche : Ctrl-M
+* Mettre un commentaire dans la marge à droite : Shift-Ctrl-M
+* Insérer un caractère ou un mot en ^exposant^ : `^mot^`
+    * Raccourci pour le signe ⁺ : Ctrl-P
+    * Raccourci pour le signe ⁻ ; Shift-Ctrl-P
+
+## Crédits
+Cet outil vous est proposé, sans garantie de fonctionnement. Il a été construit à partir de :
+* [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor/)
+* [Turndown](https://github.com/domchristie/turndown)
+* [Online Stopwatch](https://github.com/kaleidawave/online-stopwatch)
+* [Remarkable](https://github.com/jonschlinkert/remarkable)
+
+
+
+
+</textarea>
+<div class="modal" id="dialogCodesAppreciations">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+		<p>Le codage des appréciations utilise la syntaxe suivante : </p>
+		<p>Code1|Appréciation pour le code 1||Code 2|Appréciation pour le code 2 …</p>
+		<p>Vous pourrez ensuite insérer ces codes dans la copie de cette manière : &lt;a class="code">&lt;/a> <br/>
+		Raccourci pour insérer une annotation type : Cmd-Ctrl-A</p>
+		<form method="dialog">
+			<textarea id="codageAppreciations" name="codageAppreciations" rows="20" cols="50" style="width:100%"></textarea>
+			<menu>
+				<button type="submit" id="validerCodes">Valider</button>
+			</menu>
+		</form>
+    </div>
+</div>
+
+
+
+<script>
+
+/* Boîte modale pour définir le codage d'annotations typiques */
+var codage=localStorage.getItem('codage');
+var nbreCodesAppreciations=0;
+if (codage) {
+	codageAppreciations(codage);
+	document.getElementById("codageAppreciations").value=codage;
+}
+var modal = document.querySelector(".modal");
+//var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+var validationButton=document.getElementById("validerCodes");
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+//trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener('click',function onClose() {
+	var codage=document.getElementById("codageAppreciations").value;
+	if(codage) {
+		localStorage.setItem('codage', codage);
+		codageAppreciations(codage);
+	}
+	toggleModal();
+});
+validationButton.addEventListener('click',function onClose() {
+	var codage=document.getElementById("codageAppreciations").value;
+	if(codage) {
+		localStorage.setItem('codage', codage);
+		codageAppreciations(codage);
+	}
+	toggleModal();
+});
+window.addEventListener("click", windowOnClick);
+
+
+// Utilisation de Remarkable pour parser le markdown plutôt que Marker
+var md = new Remarkable('full',{
+html:true,
+breaks:true,
+linkify:true
+});
+
+
+
+/* Initialisation de l'éditeur SimpleMDE */
+var simplemde = new SimpleMDE({
+	autofocus: true,
+	spellChecker:false,
+	shortcuts: {"togglePreview":null,"toggleFullScreen":null,"toggleCodeBlock":"Cmd-U","toggleStrikethrough":"Shift-Cmd-X"},
+	status:false,
+	autosave: {
+		enabled: true,
+		uniqueId: "7777777",
+		delay: 100,
+	},
+	previewRender: function(plainText) {
+		//var html=simplemde.markdown(plainText);
+		var html=window.md.render(plainText);
+		return html;
+	},
+	toolbar:[
+			{
+			name: "underline",
+			action: function customFunction(editor){
+				simplemde.toggleCodeBlock();
+			},
+			className: "fa fa-underline",
+			title: "Souligner (Cmd-U)",
+			},
+			{
+			name: "blue",
+			action: function customFunction(editor){
+				simplemde.toggleItalic();
+			},
+			className: "fa fa-comment-o",
+			title: "Commentaire en bleu (Cmd-I)",
+			},
+			{
+			name: "red",
+			action: function customFunction(editor){
+				simplemde.toggleBold();
+			},
+			className: "fa fa-comment-o",
+			title: "Commentaire en rouge (Cmd-B)",
+			},
+			{
+			name: "marges",
+			action: function customFunction(editor){
+				var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}
+            		simplemde.codemirror.replaceSelection('<span class="margeL">'+selection+"</span>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}	
+        			simplemde.codemirror.replaceSelection('<span class="margeL"></span>');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+			},
+			className: "fa fa-pencil-square-o",
+			title: "Marge gauche (Control-M) ; marge droite (Shift-Control-M)",
+			},
+			{
+			name: "italic",
+			action: function customFunction(editor){
+				var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+				var pos = {
+					line: cursor.line,
+					ch: cursor.ch+7
+				}
+
+        		if(selection.length>0){
+            		simplemde.codemirror.replaceSelection("<i>"+selection+"</i>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+			},
+			className: "fa fa-italic",
+			title: "Italiques (Cmd-Control-I)",
+		},
+		{
+			name: "bold",
+			action: function customFunction(editor){
+				var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+				var pos = {
+					line: cursor.line,
+					ch: cursor.ch+7
+				}
+
+        		if(selection.length>0){
+            		simplemde.codemirror.replaceSelection("<b>"+selection+"</b>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+			},
+			className: "fa fa-bold",
+			title: "Gras (Cmd-Control-B)",
+		}
+		,"|","ordered-list","unordered-list","table","|","link","image","|","side-by-side","preview","fullscreen","|",
+		{
+			name: "wordcount",
+			action: function customFunction(editor){
+				var wordcounter = document.getElementsByClassName('fa-calculator');
+				wordcounter[0].innerText='   '+wordCount(simplemde.value())+' mots';
+			},
+			className: "fa fa-calculator",
+			title: "WordCount",
+		},"|",
+		{
+			name: "stopwatch-reset",
+			action: function customFunction(editor){
+				ClearTimer();
+			},
+			className: "fa fa-rotate-left",
+			title: "Réinitaliser (Control-R)",
+		},
+		{
+			name: "stopwatch",
+			action: function customFunction(editor){
+				ToggleTimer();
+			},
+			className: "fa fa-hourglass",
+			title: "Start ou Stop (Control-S)",
+		},"|",
+		{
+    name: "guide",
+    action: function openlink() {
+       var win = window.open('http://eyssette.net/annoter/instructions.html', '_blank');
+       win.focus();
+    },
+    className: "fa fa-question-circle",
+    title: "Mode d'emploi",
+},{
+			name: "CodeAppreciations",
+			action: function customFunction(editor){
+				window.modal.classList.toggle("show-modal");
+				//window.dialog.showModal();
+			},
+			className: "fa fa-barcode",
+			title: "Codes pour les appréciations",
+		},
+{
+			name: "nettoyage",
+			action: function customFunction(editor){
+				var copie=simplemde.value();
+				copie=copie.replace(/\n\n/g,'<hr/>');
+				copie=copie.replace(/\n/g,'<br/><br/>');
+				var turndownService = new TurndownService();
+				turndownService.keep(['br','hr'])
+				turndownService.addRule('italiques', {
+  					filter: ['i'],
+  					replacement: function (content) {
+    				return '<i>' + content + '</i>'
+  					}
+				})
+
+				copie=turndownService.turndown(copie);
+				simplemde.value(copie);
+
+				var wordcounter = document.getElementsByClassName('fa-calculator');
+				wordcounter[0].innerText='   '+wordCount(simplemde.value())+' mots';
+			},
+			className: "fa fa-star",
+			title: "Nettoyer le document",
+		},
+		]
+});
+simplemde.toggleSideBySide();
+
+
+
+/* Cacher l'icône Fullscreen */
+var fullscreen = document.getElementsByClassName('fa-arrows-alt');
+fullscreen[0].style.display = "none";
+
+//Changer la couleur des icônes "commentaires"
+var iconesCommentaires = document.getElementsByClassName('fa-comment-o');
+iconesCommentaires[0].setAttribute('style',"color: #022DC1 !important;");
+iconesCommentaires[1].setAttribute('style',"color: #BB271A !important;");
+
+/* Définition des raccourcis */
+
+
+/* Suppression du raccourci Escape */
+document.addEventListener("keydown", function(e) {
+		e = e || window.event;
+
+		if(e.keyCode == 27) {
+			//simplemde.toggleFullScreen();
+			simplemde.toggleSideBySide();
+		}
+	}, false);
+
+/* Pour la balise html des italiques  */
+var map = {"Cmd-Ctrl-I": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+7
+					}
+            		simplemde.codemirror.replaceSelection("<i>"+selection+"</i>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+3
+					}	
+        			simplemde.codemirror.replaceSelection("<i></i>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Pour la balise html du gras  */
+var map = {"Cmd-Ctrl-B": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+7
+					}
+            		simplemde.codemirror.replaceSelection("<b>"+selection+"</b>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+3
+					}	
+        			simplemde.codemirror.replaceSelection("<b></b>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Pour le soulignement avec un commentaire ensuite  */
+var map = {"Cmd-Ctrl-U": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+				var pos = {
+					line: cursor.line,
+					ch: cursor.ch+3
+				}
+
+        		if(selection.length>0){
+            		simplemde.codemirror.replaceSelection("`"+selection+"`**");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Pour démarrer ou stopper le chronomètre */
+var map = {"Ctrl-S": function(cm){
+	ToggleTimer();
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Pour réinitialiser le chronomètre */
+var map = {"Ctrl-R": function(cm){
+	ClearTimer();
+}}
+simplemde.codemirror.addKeyMap(map);
+
+
+/* Pour la balise html des codes d'annotation  */
+var map = {"Cmd-Ctrl-A": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+5
+					}
+            		simplemde.codemirror.replaceSelection('<a class="'+selection+'"></a>');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+10
+					}	
+        			simplemde.codemirror.replaceSelection('<a class=""></a>');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Pour la balise html des annotations dans la marge  */
+/* dans la marge à gauche*/
+var map = {"Ctrl-M": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}
+            		simplemde.codemirror.replaceSelection('<span class="margeL">'+selection+"</span>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}	
+        			simplemde.codemirror.replaceSelection('<span class="margeL"></span>');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+/* dans la marge à droite*/
+var map = {"Shift-Ctrl-M": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}
+            		simplemde.codemirror.replaceSelection('<span class="margeR">'+selection+"</span>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+21
+					}	
+        			simplemde.codemirror.replaceSelection('<span class="margeR"></span>');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Ajouter signes évaluatifs en exposant */
+/* Signe plus */
+var map = {"Ctrl-P": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+1
+					}
+            		simplemde.codemirror.replaceSelection(selection+"⁺");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+1
+					}	
+        			simplemde.codemirror.replaceSelection('⁺');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+/* Signe moins */
+var map = {"Shift-Ctrl-P": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+1
+					}
+            		simplemde.codemirror.replaceSelection(selection+"⁻");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+1
+					}	
+        			simplemde.codemirror.replaceSelection('⁻');
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+
+/* Code pour le chronomètre */
+var timer;
+var running = false;
+
+var hours = 0;
+var minutes = 0;
+var seconds = 0;
+
+var stopwatch = document.getElementsByClassName('fa-hourglass');
+stopwatch[0].innerText='   0m 0s';
+stopwatch[0].style.marginRight="50px";
+
+
+function ToggleTimer() {
+    if (!running) { StartTimer(); }
+    else { StopTimer(); }
+    running = !running;
+}
+
+function StartTimer() {
+    timer = setInterval(function () {
+        seconds++;
+        if (seconds == 60) { seconds = 0; minutes++; }
+        if (minutes == 60) { minutes = 0; hours++; }
+
+        DrawTime();
+
+    }, 1000);
+}
+
+function StopTimer() {
+    clearInterval(timer);
+}
+
+function DrawTime() {
+	if (hours>0) {
+		stopwatch[0].innerText=`   ${hours}h `+`${minutes}m `;
+	} else if (minutes > 0) {
+		stopwatch[0].innerText=`   ${minutes}m `;
+	} else {
+		stopwatch[0].innerText=`   ${minutes}m `+`${seconds}s`;
+	}
+
+}
+
+function ClearTimer() {
+    StopTimer();
+    hours = 0, minutes = 0, seconds = 0;
+    DrawTime();
+}
+
+/* Affichage des icônes pour le chronomètre */
+var doc=simplemde.value();
+var wordcounter = document.getElementsByClassName('fa-calculator');
+wordcounter[0].innerText='   '+wordCount(doc)+' mots';
+wordcounter[0].style.marginRight="70px";
+
+
+/* Code et raccourcis pour la fonction d'évaluation de la copie */
+
+/* Calcul de la note */
+var map = {"Cmd-Ctrl-N": function(cm){
+
+	var smde=simplemde.value();
+	var regexAplus=((smde.match(/<n>\+\+\+<\/n>/g)||[]).length);
+	var regexA=((smde.match(/<n>\+\+<\/n>/g)||[]).length);
+	var regexB=((smde.match(/<n>\+<\/n>/g)||[]).length);
+	var regexCplus=((smde.match(/<n>\+\-<\/n>/g)||[]).length);
+	var regexCmoins=((smde.match(/<n>\-\+<\/n>/g)||[]).length);
+	var regexD=((smde.match(/<n>\-<\/n>/g)||[]).length);
+	var regexE=((smde.match(/<n>\-\-<\/n>/g)||[]).length);
+
+	var valeurAplus=1;
+	var valeurA=0.88;
+	var valeurB=0.75;
+	var valeurCplus=0.63;
+	var valeurCmoins=0.5;
+	var valeurD=0.37;
+	var valeurE=0.25;
+
+	var points = regexE*valeurE + regexD*valeurD + regexCmoins*valeurCmoins + regexCplus*valeurCplus + regexB*valeurB + regexA*valeurA + regexAplus*valeurAplus ;
+
+	var nombreRegex = regexAplus+regexA+regexB+regexCplus+regexCmoins+regexD+regexE ;
+
+	var valeurDuPoint=20/nombreRegex;
+
+	var note=points*valeurDuPoint;
+	var affichageNote=note.toFixed(2).replace(".00",'');
+
+	alert('La note calculée est de : '+affichageNote+' / 20');
+
+}}
+simplemde.codemirror.addKeyMap(map);
+
+/* Evaluation d'un paragraphe */
+var map = {"Ctrl-N": function(cm){
+	var selection = simplemde.codemirror.getSelection();
+				var cursor = simplemde.codemirror.getCursor();
+        		if(selection.length>0){
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+7
+					}
+            		simplemde.codemirror.replaceSelection("<n>"+selection+"</n>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			} else {
+        			var pos = {
+					line: cursor.line,
+					ch: cursor.ch+3
+					}	
+        			simplemde.codemirror.replaceSelection("<n></n>");
+            		simplemde.codemirror.focus();
+            		simplemde.codemirror.setCursor(pos);
+        			}
+}}
+simplemde.codemirror.addKeyMap(map);
+
+
+/* Compteur de mots */
+function wordCount(data) {
+	var pattern = /[a-zA-Z0-9_\u0392-\u03c9\u0410-\u04F9-\u00e0-\u00e2-\u00e4-\u00e7-\u00e8-\u00e9-\u00ea-\u00eb-\u00ee-\u00ef-\u00f4-\u00f6-\u00f9-\u00fb-\u00fc]+|[\u4E00-\u9FFF\u3400-\u4dbf\uf900-\ufaff\u3040-\u309f\uac00-\ud7af]+/g;
+	var m = data.match(pattern);
+	var count = 0;
+	if(m === null) return count;
+	for(var i = 0; i < m.length; i++) {
+		if(m[i].charCodeAt(0) >= 0x4E00) {
+			count += m[i].length;
+		} else {
+			count += 1;
+		}
+	}
+	return count;
+}
+
+
+/* Système d'annotations automatiques avec des codes */
+function codageAppreciations(codesAppreciations) {
+
+var tableauCodesAppreciations=codesAppreciations.split("||");
+
+tableauCodesAppreciations.forEach(function(tableau){
+	var tableauCode=tableau.split("|");
+	var codeAppreciation=tableauCode[0];
+	var appreciation=tableauCode[1];
+	document.styleSheets[2].addRule('.editor-preview-active-side a.'+codeAppreciation+':after','content: "'+appreciation+'";');
+	window.nbreCodesAppreciations++;
+})
+}
+
+
+</script>
+</body>
+</html>
