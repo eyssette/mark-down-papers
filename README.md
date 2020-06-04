@@ -1,6 +1,6 @@
 Mark(down)Papers est un outil en ligne d'aide à l'annotation et l'évaluation de travaux d'élèves, au format texte.
 
-Il est accessible ici : [http://eyssette.net/annoter/](http://eyssette.net/annoter/)
+Il est accessible ici : [https://eyssette.github.io/mark-down-papers/](https://eyssette.github.io/mark-down-papers/)
 
 ## Fonctionnement
 1. Copier-coller le texte de la copie dans la fenêtre de gauche.
