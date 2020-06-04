@@ -87,13 +87,13 @@ Pour définir des annotations automatiques, il faut cliquer sur le “code barre
 * Insérer une annotation type : Cmd-Ctrl-A
 
 ### Annotations dans la marge
-Il est possible d'insérer des remarques très courtes dans la marge, à gauche ou à droite. Cela peut fonctionner si on a un système de codage de ses annotations : par exemple E^+^ <span class="margeL">E^+^</span> (pour un bon exemple) ou OL^-^ <span class="margeR">OL^-^</span> (pour une organisation logique défaillante).
+Il est possible d'insérer des remarques très courtes dans la marge, à gauche ou à droite. Cela peut fonctionner si on a un système de codage de ses annotations : par exemple E<sup>+</sup> <span class="margeL">E^+^</span> (pour un bon exemple) ou OL<sup>-</sup> <span class="margeR">OL<sup>-</sup></span> (pour une organisation logique défaillante).
 
 Si on veut utiliser des remarques plus longues, il faut encadrer la copie de l'élève avec les balises suivantes : `<div class="grandesmarges"></div>`
 
 * Mettre un commentaire dans la marge à gauche : Ctrl-M
 * Mettre un commentaire dans la marge à droite : Shift-Ctrl-M
-* Insérer un caractère ou un mot en ^exposant^ : `^mot^`
+* Insérer un caractère ou un mot en <sup>exposant</sup> : `^mot^`
     * Raccourci pour le signe ⁺ : Ctrl-P
     * Raccourci pour le signe ⁻ ; Shift-Ctrl-P
 
