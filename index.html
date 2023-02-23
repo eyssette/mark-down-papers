@@ -205,9 +205,11 @@ var simplemde = new SimpleMDE({
 	previewRender: function(plainText) {
 		//var html=simplemde.markdown(plainText);
 		var html=window.md.render(plainText);
+		html = html.replaceAll('--&gt;</p>','-->')
 		html = html.replaceAll(/<br>\n(.*?)<br>/g,'<br><span class="newline">$1</span><br>')
 		html = html.replaceAll(/<br>\n(.*?)<br>/g,'<br><span class="newline">$1</span><br>')
 		html = html.replaceAll(/<br>\n(.*?)<\/p>/g,'<br><span class="newline">$1</span></p>')
+		console.log(html);
 		return html;
 	},
 	toolbar:[
